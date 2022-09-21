@@ -6,7 +6,15 @@ from helpers.utils.utils import humanify
 from allure_commons._allure import StepContext
 
 
-def step(fn):
+def step(fn: str | types.MethodType | types.FunctionType):
+    def define_function_type():
+        if isinstance(fn, types.MethodType) or isinstance(fn, types.MethodType):
+            pass
+        elif isinstance(fn, str):
+            pass
+        else:
+            pass
+
     @wraps(fn)
     def fn_with_logging(*args, **kwargs):
         is_method = (
